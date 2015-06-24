@@ -19,14 +19,6 @@ cvx_begin sdp
     r2==semidefinite(n)
     r3==semidefinite(n)
     r4==semidefinite(n)
-    H(1:4,5:12)==zeros(4,8);
-    H(13:16,5:12)==zeros(4,8);
-    H(1:4,14:15)==zeros(4,2);
-    H(5:9,10:11)==zeros(5,2);
-    r1(1:4,5:12)==zeros(4,8);
-    r1(13:16,5:12)==zeros(4,8);
-    r1(1:4,14:15)==zeros(4,2);
-    r1(5:9,10:11)==zeros(5,2);
     cvx_quiet true
 cvx_end
 %disp(trace(H)/4);

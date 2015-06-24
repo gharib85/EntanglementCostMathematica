@@ -10,10 +10,10 @@ psi_a{3}=[0, sqrt((1+a)/2),sqrt((1-a)/2),0];
 psi_a{4}=[0, sqrt((1-a)/2),-sqrt((1+a)/2),0];
 psi_e=[sqrt((1+e)/2),0,0,sqrt((1-e)/2)];
 
-rho_no_transpose = zeros(16,4);
+rho_no_transpose = zeros(4,4);
 
 for idx=1:4
-    psi_temp=kron(psi_a{idx},psi_e);
+    psi_temp=psi_a{idx};
     rho_no_transpose(:,idx)=psi_temp';
 end
 end
