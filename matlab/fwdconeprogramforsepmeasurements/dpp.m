@@ -1,9 +1,10 @@
-% function [H,r1,r2,r3,r4,relement,m]=run_sdp_dual(a,epsilon)
+function [H,r1,r2,r3,r4,relement,m]=dpp(a,epsilon)
 %%
-function [m]=run_sdp_dual(a,epsilon)
+% function [m]=run_sdp_dual(a,epsilon)
 [rho_no_transpose,n] = shelby_setup( a, epsilon );
 %[rho_transpose,rho_no_transpose,n] = setup_1epr( a, epsilon );
-cvx_begin sdp
+cvx_begin sdp quiet
+    cvx_precision(eps);
     variable H(n,n) hermitian
     variable r1(n,n) hermitian
     variable r2(n,n) hermitian

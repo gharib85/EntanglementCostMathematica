@@ -13,8 +13,8 @@ psi_e=[sqrt((1+e)/2),0,0,sqrt((1-e)/2)];
 for idx=1:4
     psi_temp=kron(psi_a{idx},psi_e);
     rho_temp=kron(psi_temp',psi_temp);
-%     rho{idx}=Swap(rho_temp, [2,3], [2,2,2,2]);
-    rho{idx} = rho_temp;
+    rho{idx}=Swap(rho_temp, [2,3], [2,2,2,2]);
+%     rho{idx} = rho_temp;
 end
 n=size(rho{1},1);
 end

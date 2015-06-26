@@ -1,11 +1,13 @@
-it1 = linspace(0,1,11);
-it2 = linspace(0,1,11);
-X = it1';
-Y = it2';
-Z = zeros(11);
-for i = 1:11
-    for j = 1:11
-        Z(i,j) = run_ppt_sdp(X(i),Y(j));
-    end
+a = 0.9;
+e = 0.2;
+psi_a{1}=[sqrt((1+a)/2),0,0,sqrt((1-a)/2)];
+psi_a{2}=[sqrt((1-a)/2),0,0,-sqrt((1+a)/2)];
+psi_a{3}=[0, sqrt((1+a)/2),sqrt((1-a)/2),0];
+psi_a{4}=[0, sqrt((1-a)/2),-sqrt((1+a)/2),0];
+psi_e=[sqrt((1+e)/2),0,0,sqrt((1-e)/2)];
+
+for idx=1:4
+    psi_temp=kron(psi_a{idx},psi_e);
+    rho_temp=kron(psi_temp',psi_temp);
+    rho{idx}=Swap(rho_temp, [2,3], [2,2,2,2]);
 end
-surf(X,Y,Z)
